@@ -1,0 +1,119 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: linear-gradient(45deg, #141e30, #243b55);
+    background-size: 400% 400%;
+    animation: gradientMove 10s infinite alternate;
+    background-image: url("abc.jpg.webp");
+    background-size: 1500px ;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+img{
+    position: absolute;
+    left: 140px;
+    top: 12px;
+    background: none;
+    filter: contrast(135%);
+}
+
+.container{
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form_area{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-color: rgba(4, 9, 49, 0.75);
+    height: 650px;
+    width: 400px;
+}
+.title{
+    color:white;
+    font-weight: bolder;
+    font-size: 30px;
+    margin-left: 50px;
+    margin-top: 52px;
+}
+.form_style{
+    outline: none;
+    border: 0.5px solid rgb(199, 199, 199);
+    background-color: rgb(0,0,0,0.75);
+    margin-bottom: 14px;
+    width: 280px;
+    padding: 18px 10px;
+    border-radius: 4px;
+    margin-left: 50px;
+    font-size: 16px;
+    color: white;
+}
+.btn{
+    padding: 12px;
+    margin-left: 50px;
+    width: 303px;
+    font-size: 15px;
+    background: darkblue;
+    color: white;
+    border-radius: 7px;
+    
+}
+.b{
+    padding: 12px;
+    margin-left: 50px;
+    width: 303px;
+    font-size: 15px;
+    background: rgb(255,255,255,0.5);
+    color: white;
+    border-radius: 7px;
+}
+.ok{
+    color: rgb(170, 165, 165);
+    text-align: center;
+}
+.fp{
+    text-align: center;
+    color: white;
+    font-size: 15px;
+    margin-bottom: 23px;
+}
+.cb{
+    color: white;
+    margin-left: 4px;
+}
+.c{
+    margin-left: 50px;
+    
+}
+.new{
+    color: rgb(191, 183, 183);
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.neww{
+    color: white;
+    text-decoration: none;
+}
+.last{
+    font-size: 13px;
+    color: rgb(191,183,183);
+    margin-left: 50px;
+    margin-right: 50px;
+}
+a{
+    color: rgb(196, 207, 40);
+    text-decoration: none;
+}

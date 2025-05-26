@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduQuest-Home Page</title>
+    <link rel="stylesheet" href="front.css">
+</head>
+<body>
+    <header class="header">
+      <div class="logo"><a href="#">
+        <img src="PHOTO-2025-05-01-01-02-08-removebg-preview.png" alt="EduQuest Logo" style="height: 80px;">
+    </a></div>
+        <nav>
+            <ul>
+                <li><a href="front.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="http://localhost:8080/chat">Chat</a></li>
+                <li><a href="quizzes.html">Quiz</a></li>
+                <li><a href="games.html">🧠 Booster</a></li>
+            </ul>
+        </nav>
+    </header>
+    <br>
+    
+    <section class="home">
+        <div class="homediv">
+          <div class="inner">
+            <section class="hero">
+                <div class="hero-content">
+                  <h1>Welcome to EduQuest 🎓</h1>
+                  <p>Your Smart Learning Companion - Explore, Learn, and Grow</p>
+                  <a href="courses.html" class="btn">Explore Courses</a>
+                </div>
+              </section>
+              
+              <section class="features">
+                <h2>Our Features</h2>
+                <div class="feature-cards">
+                  <div class="card">
+                    <h3>📚 Courses</h3>
+                    <p>Wide range of curated learning materials across disciplines.</p>
+                  </div>
+                  <div class="card">
+                    <h3>🧑‍🏫 Mentor Talks</h3>
+                    <p>1-on-1 conversations with experienced mentors to guide your journey.</p>
+                  </div>
+                  <div class="card">
+                    <h3>🧠 Quizzes & Games</h3>
+                    <p>Interactive quizzes and brain-boosting games to make learning fun!</p>
+                  </div>
+                </div>
+              </section>
+              <hr>
+              <div class="container">
+                <img class="img" src="bg3.jpg" alt="">
+              </div>
+            <hr>
+            <div class="bgcolor">
+              <h1 class="section-heading">Mentorly brain boosting💡</h1>
+              <div class="about-container">
+                  <div class="about-text">
+              
+                    <br><h3>📌 Want to clarify your doubts?</h3>
+              <p>Ask any doubt you face within the courses</p>
+              <p>Wait for the response...</p>
+              <p>Get guidance from the top educators!</p>
+              <p>Get added in the group based on the doubt you're facing and socialize with your peers!</p><br>
+              <h3>🚀 Ready to Play & Learn?</h3>
+              <p>Explore the Quiz section and begin your journey to becoming a quiz champion!</p>
+              </div>
+                  <div class="about-image">
+                      <img src="chat.webp" alt="About Us Image">
+                  </div>
+                  </div>
+              </div> 
+              <br>
+              <section class="cta">
+                <h2>Ready to Start Learning?</h2>
+                <a href="courses.html" class="btn">Explore Courses</a>
+              </section>
+              
+              <footer>
+                <p>© 2025 EduQuest. All Rights Reserved.</p>
+              </footer>
+              
+          </div>
+        </div>
+    </section>
+    <div id="chatbot-icon">💬</div>
+    <div id="chatbot-container" class="hidden">
+        <div id="chatbot-header">
+            <span>ChatBot</span>
+            <button id="close-btn">&times;</button>
+        </div>
+        <div id="chatbot-body">
+            <div id="chatbot-messages"></div>
+        </div>
+        <div id="chatbot-input-container">
+            <input type="text" id="chatbot-input" placeholder="Type a message">
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const chatbotContainer = document.getElementById("chatbot-container");
+    const clostBtn = document.getElementById("close-btn");
+    const sendBtn = document.getElementById("send-btn");
+    const chatBotInput = document.getElementById("chatbot-input");
+    const chatbotMessages = document.getElementById("chatbot-messages");
+    const chatbotIcon = document.getElementById("chatbot-icon");
+  
+    chatbotIcon.addEventListener("click", () => {
+      chatbotContainer.classList.remove("hidden");
+      chatbotIcon.style.display = "none";
+    });
+    clostBtn.addEventListener("click", () => {
+      chatbotContainer.classList.add("hidden");
+      chatbotIcon.style.display = "flex";
+    });
+  
+    sendBtn.addEventListener("click", sendMessage);
+  
+    chatBotInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") sendMessage();
+    });
+  });
+  
+  
+
+  function sendMessage() {
+    const chatBotInput = document.getElementById("chatbot-input");
+    const userMessage = chatBotInput.value.trim();
+    if (userMessage) {
+      appendMessage("user", userMessage);
+      chatBotInput.value = ""; 
+      getBotResponse(userMessage);
+    }
+}
+
+  
+  function appendMessage(sender, message) {
+    const messageContainer = document.getElementById("chatbot-messages");
+    const messageElement = document.createElement("div");
+    messageElement.classList.add("message", sender);
+    messageElement.textContent = message;
+    messageContainer.appendChild(messageElement);
+    messageContainer.scrollTop = messageContainer.scrollHeight;
+  }
+
+
+  
+  
+  async function getBotResponse(userMessage) {
+    const API_KEY = "AIzaSyAR9VyhSasyXkNyQ0IVpBrQ7Zy5dNs2SJU";
+    const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
+  
+    try {
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [
+            {
+              parts: [{ text: userMessage }],
+            },
+          ],
+        }),
+      });
+  
+      const data = await response.json();
+  
+      if (!data.candidates || !data.candidates.length) {
+        throw new Error("No response from Gemini API");
+      }
+  
+      const botMessage = data.candidates[0].content.parts[0].text;
+      appendMessage("bot", botMessage);
+    } catch (error) {
+      console.error("Error:", error);
+      appendMessage(
+        "bot",
+        "Sorry, I'm having trouble responding. Please try again."
+      );
+    }
+  }
+    </script>
+</body>
+</html>

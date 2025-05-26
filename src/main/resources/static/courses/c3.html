@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Python Course</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        color: rgb(8, 8, 84);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 40px;
+        background-color: rgb(198, 218, 237);
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 40px;
+      justify-content: center;
+      align-items: stretch;
+      gap: 40px;
+      min-height: 100vh;
+    }
+
+    .text-section {
+      flex: 1 1 500px;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .video-section {
+      flex: 1 1 400px;
+      max-width: 600px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    iframe {
+      width: 100%;
+      height: 315px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #2c3e50;
+    }
+
+    ul {
+      margin-top: 10px;
+      line-height: 1.6;
+    }
+
+    @media screen and (max-width: 900px) {
+      .container {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .video-section {
+        order: -1;
+      }
+    }
+
+    .pdfs, a {
+      padding-left: 50px;
+      padding-right: 150px;
+    }
+
+    .video-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    .video-links li {
+      margin: 10px 0;
+    }
+
+    .video-links a {
+      color: #007bff;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .video-links a:hover {
+      text-decoration: underline;
+    }
+
+    .download-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px; 
+      flex-wrap: wrap;
+    }
+
+    .pdfs {
+      margin-right: 20px; 
+    }
+  </style>
+</head>
+<body>
+<h1>Python Course</h1>
+  <div class="container">
+
+    <div class="text-section">
+        <h2 style="white-space: nowrap; font-size: 32px;">
+            🐍 Introduction to Python Programming
+          </h2>
+      <p>Welcome to the <strong>Python Programming Course</strong> – your first step into the world of coding!</p>
+      <p>Python is one of the most popular and beginner-friendly programming languages in the world. Known for its <strong>simple syntax</strong>, <strong>flexibility</strong>, and <strong>versatility</strong>, Python is widely used in:</p>
+      <ul>
+        <li>🌐 Web Development</li>
+        <li>📊 Data Science</li>
+        <li>🤖 Artificial Intelligence</li>
+        <li>⚙️ Automation and Scripting</li>
+        <li>🎮 Game Development</li>
+        <li>📱 App Development</li>
+      </ul>
+
+      <h2>🧠 What You'll Learn</h2>
+      <ul>
+        <li>Python Syntax and Variables</li>
+        <li>Data Types and Operators</li>
+        <li>Conditional Statements and Loops</li>
+        <li>Functions and Modules</li>
+        <li>File Handling</li>
+        <li>Intro to Object-Oriented Programming</li>
+        <li>Mini Projects & Real-world Examples</li>
+      </ul>
+
+      <h2>🎯 Outcomes</h2>
+      <ul>
+        <li>Write your own Python programs</li>
+        <li>Understand logic & structure</li>
+        <li>Solve real-world problems</li>
+        <li>Build mini-projects confidently</li>
+      </ul>
+    </div>
+
+   
+    <div class="video-section">
+      <iframe 
+        src="https://www.youtube.com/embed/_uQrJ0TkZlc" 
+        title="Python Tutorial for Beginners" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+  </div>
+  <hr>
+  <div class="download-container">
+
+    <div class="pdfs">
+      <h2>📄 View Study PDF</h2>
+      <ol>
+        <li>
+          <a href="Python book.pdf" target="_blank" class="btn">Python Book</a>
+        </li>
+        <li> 
+            <a href="Python Notes.pdf">Python Notes</a>
+        </li>
+      </ol>
+    </div><hr>
+    <div class="pdfs">
+      <h2>📚 Download Materials</h2>
+      <ul>
+        <li><a href="materials/designing-guide.pdf" download>Download PDF</a></li>
+        <li><a href="materials/designing-projects.zip" download>Download Project Files</a></li>
+        <li><a href="Python book.pdf" download>Download PDF 2</a></li>
+      </ul>
+    </div>
+  </div>
+<hr>
+  <div class="video-section">
+    <h2>📺 Watch More Videos</h2>
+    <ul class="video-links">
+      <li><a href="https://www.youtube.com/watch?v=_uQrJ0TkZlc" target="_blank">Python Tutorial for Beginners - Part 1</a></li>
+      <li><a href="https://www.youtube.com/watch?v=rfscVS0vtbw" target="_blank">Python Tutorial for Beginners - Part 2</a></li>
+    </ul>
+  </div>
+
+</body>
+</html>
